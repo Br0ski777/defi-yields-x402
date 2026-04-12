@@ -12,7 +12,7 @@ export const API_CONFIG: ApiConfig = {
       price: "$0.002",
       description: "Find best DeFi yield opportunities for a token",
       toolName: "defi_find_best_yields",
-      toolDescription: "Use this when you need to find the best DeFi yields for a token. Returns top lending/staking/LP opportunities ranked by APY, with protocol name, chain, TVL, and risk level. Powered by DeFiLlama. Do NOT use for executing deposits. Ideal for yield optimization, idle capital deployment, DeFi strategy comparison.",
+      toolDescription: "Use this when you need to find the best DeFi yields for a token. Returns top lending/staking/LP opportunities ranked by APY, with protocol name, chain, TVL, and risk level. Powered by DeFiLlama. Ideal for yield optimization, idle capital deployment, DeFi strategy comparison. Do NOT use for swap quotes — use dex_get_swap_quote. Do NOT use for wallet balance — use wallet_get_portfolio.",
       inputSchema: {
         type: "object",
         properties: {
