@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Br0ski777/defi-yields",
+  "title": "DeFi Yield Finder API",
+  "description": "Best DeFi yields by token — APY, TVL, risk, protocol. DeFiLlama-powered. x402.",
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/Br0ski777/defi-yields-x402",
+  "repository": {
+    "url": "https://github.com/Br0ski777/defi-yields-x402",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "sse",
+      "url": "https://defi-yields-x402-production.up.railway.app/mcp"
+    }
+  ]
+}
