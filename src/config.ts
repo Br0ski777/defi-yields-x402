@@ -46,6 +46,63 @@ Do NOT use for swap quotes -- use dex_get_swap_quote instead. Do NOT use for wal
         },
         required: ["token"],
       },
+      outputSchema: {
+          "type": "object",
+          "properties": {
+            "token": {
+              "type": "string",
+              "description": "Token queried"
+            },
+            "chain": {
+              "type": "string",
+              "description": "Chain filter"
+            },
+            "results": {
+              "type": "number",
+              "description": "Number of opportunities"
+            },
+            "opportunities": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "protocol": {
+                    "type": "string"
+                  },
+                  "pool": {
+                    "type": "string"
+                  },
+                  "apy": {
+                    "type": "number"
+                  },
+                  "apyBase": {
+                    "type": "number"
+                  },
+                  "apyReward": {
+                    "type": "number"
+                  },
+                  "tvl": {
+                    "type": "number"
+                  },
+                  "tvlFormatted": {
+                    "type": "string"
+                  },
+                  "chain": {
+                    "type": "string"
+                  },
+                  "risk": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "token",
+            "results",
+            "opportunities"
+          ]
+        },
     },
   ],
 };
