@@ -35,7 +35,8 @@ Any x402-aware client ([`@x402/fetch`](https://www.npmjs.com/package/@x402/fetch
 
 | Tool | Method | Path | Price | Description |
 |---|---|---|---|---|
-| `defi_find_best_yields` | GET | `/api/yields` | $0.002 | Find best DeFi yield opportunities for a token |
+| `defi_find_best_yields` | GET | `/api/yields` | $0.005 | Find best DeFi yield opportunities for a token |
+| `defi_find_best_yields` | POST | `/api/yields` | $0.005 | Find best DeFi yield opportunities for a token (POST variant) |
 
 ### `defi_find_best_yields`
 
@@ -70,8 +71,42 @@ Example response:
 
 **Not for**: swap quotes (use `dex_get_swap_quote`), wallet balance (use `wallet_get_portfolio`), liquidation risk (use `defi_get_liquidation_levels`).
 
+### `defi_find_best_yields`
+
+Use this when you need to find the best DeFi yields for a token across all chains and protocols. Returns ranked opportunities in JSON. POST variant of defi_find_best_yields -- same params passed as JSON body instead of query string.
+
+**Parameters**
+
+| Name | Type | Required | Description |
+|---|---|---|---|
+| `token` | string | yes | Token symbol to find yields for (e.g. USDC, ETH, WBTC) |
+| `chain` | string | no | Filter by chain (e.g. base, ethereum, arbitrum, polygon). Optional — returns all chains if omitted. |
+| `minTvl` | number | no | Minimum TVL in USD to filter pools (default: 100000) |
+| `limit` | number | no | Number of results to return (default: 10, max: 50) |
+
+**Returns**
+
+- `pool` -- pool/vault name and pair
+- `protocol` -- protocol name (Aave, Compound, Lido, Aerodrome, etc.)
+- `chain` -- which blockchain network
+- `apy` -- current annual percentage yield
+- `tvl` -- total value locked in USD
+- `riskLevel` -- risk assessment (low/medium/high)
+- `type` -- yield type (lending, staking, LP, vault)
+
+Example response:
+
+```json
+{"pools":[{"pool":"USDC Lending","protocol":"Aave V3","chain":"base","apy":4.82,"tvl":125000000,"riskLevel":"low","type":"lending"}],"token":"USDC","totalPools":15}
+```
+
+**When to use**: deploying idle capital to find the highest safe yield. Essential for yield optimization and DeFi strategy comparison.
+
+**Not for**: swap quotes (use `dex_get_swap_quote`), wallet balance (use `wallet_get_portfolio`), liquidation risk (use `defi_get_liquidation_levels`).
+
 ## Example agent prompts
 
+- "Find the best DeFi yields for a token across all chains and protocols"
 - "Find the best DeFi yields for a token across all chains and protocols"
 
 ## Payment
