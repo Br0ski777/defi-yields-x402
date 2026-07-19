@@ -9,7 +9,7 @@ export const API_CONFIG: ApiConfig = {
     {
       method: "GET",
       path: "/api/yields",
-      price: "$0.002",
+      price: "$0.005",
       description: "Find best DeFi yield opportunities for a token",
       toolName: "defi_find_best_yields",
       toolDescription: `Use this when you need to find the best DeFi yields for a token across all chains and protocols. Returns ranked opportunities in JSON.
@@ -107,7 +107,7 @@ Do NOT use for swap quotes -- use dex_get_swap_quote instead. Do NOT use for wal
     {
       method: "POST",
       path: "/api/yields",
-      price: "$0.002",
+      price: "$0.005",
       description: "Find best DeFi yield opportunities for a token (POST variant)",
       toolName: "defi_find_best_yields",
       toolDescription: `Use this when you need to find the best DeFi yields for a token across all chains and protocols. Returns ranked opportunities in JSON. POST variant of defi_find_best_yields -- same params passed as JSON body instead of query string.
